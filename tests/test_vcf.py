@@ -18,6 +18,7 @@ def valid_vcf_file(tmp_path):
 chr1\t10\t.\tA\tT\t100\tPASS\tCSQ=YFG|0.00345||123\tGT:AO:AF\t0/1:123:0.54
 chr1\t15\t.\tC\tG\t123\tPASS\t\tGT:AO:AF\t0/1:123:0.54
 chr1\t20\t.\tT\tG\t123\tPASS\tDECOMPOSED\tGT:AO:AF\t0/1:35:0.07
+chr1\t20\t.\tT\tG\t.\tPASS\tDECOMPOSED\tGT:AO:AF\t0/1:35:0.07
 """
     with open(vcf_path, "w") as of:
         of.write(vcf_text)
@@ -38,13 +39,13 @@ def expected_info_keys():
 @pytest.fixture
 def expected_default_fields():
     return dict(
-        CHROM=["chr1", "chr1", "chr1"],
-        POS=[10, 15, 20],
-        ID=[".", ".", "."],
-        REF=["A", "C", "T"],
-        ALT=[["T"], ["G"], ["G"]],
-        QUAL=[100, 123, 123],
-        FILTER=["PASS", "PASS", "PASS"],
+        CHROM=["chr1", "chr1", "chr1", "chr1"],
+        POS=[10, 15, 20, 20],
+        ID=[".", ".", ".", "."],
+        REF=["A", "C", "T", "T"],
+        ALT=[["T"], ["G"], ["G"], ["G"]],
+        QUAL=[100.0, 123.0, 123.0, None],
+        FILTER=["PASS", "PASS", "PASS", "PASS"],
     )
 
 

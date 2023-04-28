@@ -68,7 +68,7 @@ class Variant:
         self.id = attr[2]
         self.ref = attr[3]
         self.alt = attr[4].split(",")
-        self.qual = float(attr[5])
+        self.qual = float(attr[5]) if attr[5] != "." else None
         self.filter = attr[6]
         self.info = self._parse_info(attr[7])
         self.format = self._parse_format(attr[8])
