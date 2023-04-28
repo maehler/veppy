@@ -63,7 +63,7 @@ def main(vcf_path, vep_fields, list_fields, vcf_fields, vep_key, sep):
         return
 
     if len(vep_fields) == 0:
-        vep_fields = vcf.annotations.variables
+        vep_fields = tuple(vcf.annotations.variables)
     else:
         for f in vep_fields:
             if f not in vcf.annotations.variables:
