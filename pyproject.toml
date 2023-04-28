@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "veppy"
-version = "0.1.0"
+version = "0.2.0"
 description = "Utilities for querying VEP-annotated VCF files"
 license = "GPL-3.0-or-later"
 authors = ["Niklas Mähler <niklas.mahler@gmail.com>"]
